@@ -1,4 +1,4 @@
-# Drive in Finder
+# Reveal in Drive
 
 A tiny macOS menu bar app: paste a Google Drive link, and it reveals the file in Finder, like "Reveal in Finder" for Drive links.
 
@@ -7,7 +7,7 @@ A tiny macOS menu bar app: paste a Google Drive link, and it reveals the file in
 - **Menu bar icon:** opens a field that's pre-filled with any Drive link on your clipboard. Press Return to reveal.
 - **⌃⌥⌘D** (works in any app): reveals the Drive link on your clipboard right away.
 - **Open at login:** a checkbox in the menu.
-- **CLI:** `"/Applications/Drive in Finder.app/Contents/MacOS/Drive in Finder" <link> [--reveal]` prints the local path.
+- **CLI:** `"/Applications/Reveal in Drive.app/Contents/MacOS/Reveal in Drive" <link> [--reveal]` prints the local path.
 
 Supported links: `drive.google.com/file/d/…`, `/drive/folders/…`, `docs.google.com/{document,spreadsheets,presentation,forms}/d/…`, `open?id=…`, or a bare ID.
 
@@ -27,6 +27,6 @@ The app looks up the ID from the link, walks parent folders (and Drive shortcuts
 Requires Xcode command line tools, and builds for macOS 14+.
 
 ```bash
-./build.sh            # builds build/Drive in Finder.app
+./build.sh            # builds build/Reveal in Drive.app
 ./build.sh --install  # also copies to /Applications and launches it
 ```

@@ -6,7 +6,7 @@ import SwiftUI
 @main
 struct Main {
     static func main() {
-        // CLI mode for scripting/testing: `Drive\ in\ Finder <link> [--reveal]`
+        // CLI mode for scripting/testing: `Reveal\ in\ Drive <link> [--reveal]`
         let args = Array(CommandLine.arguments.dropFirst())
         if let link = args.first(where: { !$0.hasPrefix("-") }) {
             do {
@@ -122,7 +122,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "arrow.up.forward.app", accessibilityDescription: "Drive in Finder")
+            button.image = NSImage(systemSymbolName: "arrow.up.forward.app", accessibilityDescription: "Reveal in Drive")
             button.action = #selector(togglePopover)
             button.target = self
         }
@@ -173,7 +173,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             return noErr
         }, 1, &spec, selfPtr, nil)
 
-        let id = EventHotKeyID(signature: OSType(0x44524946), id: 1) // 'DRIF'
+        let id = EventHotKeyID(signature: OSType(0x52564452), id: 1) // 'RVDR'
         RegisterEventHotKey(UInt32(kVK_ANSI_D), UInt32(cmdKey | optionKey | controlKey), id,
                             GetApplicationEventTarget(), 0, &hotKeyRef)
     }
